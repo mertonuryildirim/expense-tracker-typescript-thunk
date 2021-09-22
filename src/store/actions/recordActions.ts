@@ -37,8 +37,8 @@ export const deleteRecord =
   (id: Record["id"]) => async (dispatch: RecordDispatch) => {
     dispatch({ type: "DELETE_RECORD_START" });
     try {
-      const response = await api.delete<Record>("/records/" + id);
-      dispatch({ type: "DELETE_RECORD_SUCCESS", payload: response.data });
+      await api.delete("/records/" + id);
+      dispatch({ type: "DELETE_RECORD_SUCCESS", payload: id });
     } catch {
       dispatch({ type: "DELETE_RECORD_ERROR" });
     }

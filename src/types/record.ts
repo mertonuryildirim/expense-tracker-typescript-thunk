@@ -67,7 +67,7 @@ interface DELETE_RECORD_START {
 
 interface DELETE_RECORD_SUCCESS {
   type: "DELETE_RECORD_SUCCESS";
-  payload: Record;
+  payload: Record["id"];
 }
 
 interface DELETE_RECORD_ERROR {
