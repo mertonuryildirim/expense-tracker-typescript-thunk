@@ -114,7 +114,6 @@ const Records = () => {
       render: (text: string, record: Record) => {
         const { title, amount } = record;
         const category_id = record.category.id;
-        console.log("record", record);
         return (
           <Space size="middle">
             <EditOutlined
@@ -221,7 +220,7 @@ const Records = () => {
           )}
         </Modal>
       </div>
-      <Table loading={loading} columns={columns} dataSource={data} />
+      <Table rowKey="id" loading={loading} columns={columns} dataSource={data} />
     </React.Fragment>
   );
 };
