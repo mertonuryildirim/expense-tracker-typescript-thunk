@@ -21,3 +21,25 @@ export const addRecord =
       dispatch({ type: "ADD_RECORD_ERROR" });
     }
   };
+
+export const updateRecord =
+  (form: RecordForm, id: Record["id"]) => async (dispatch: RecordDispatch) => {
+    dispatch({ type: "UPDATE_RECORD_START" });
+    try {
+      const response = await api.put<Record>("/records/" + id, form);
+      dispatch({ type: "UPDATE_RECORD_SUCCESS", payload: response.data });
+    } catch {
+      dispatch({ type: "UPDATE_RECORD_ERROR" });
+    }
+  };
+
+export const deleteRecord =
+  (id: Record["id"]) => async (dispatch: RecordDispatch) => {
+    dispatch({ type: "DELETE_RECORD_START" });
+    try {
+      const response = await api.delete<Record>("/records/" + id);
+      dispatch({ type: "DELETE_RECORD_SUCCESS", payload: response.data });
+    } catch {
+      dispatch({ type: "DELETE_RECORD_ERROR" });
+    }
+  };
