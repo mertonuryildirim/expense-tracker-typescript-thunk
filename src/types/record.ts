@@ -10,6 +10,12 @@ export interface Record {
   category: Category;
 }
 
+export interface RecordForm {
+  title: string;
+  amount: number;
+  category_id: number;
+}
+
 export interface RecordState {
   data: Record[];
   loading: boolean;

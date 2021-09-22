@@ -11,8 +11,7 @@ import {
 import { Category, CategoryForm } from "../types/category";
 import { SketchPicker } from "react-color";
 import { DeleteOutlined, EditOutlined } from "@ant-design/icons";
-
-type Mode = "new" | "edit" | "delete";
+import { Mode } from "../types/general";
 
 function Categories() {
   const dispatch = useDispatch();
