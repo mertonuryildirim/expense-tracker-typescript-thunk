@@ -111,12 +111,30 @@ const Records = () => {
     {
       title: "Action",
       key: "action",
-      render: (text: string, record: Record) => (
-        <Space size="middle">
-          <EditOutlined style={{ color: "blue" }} onClick={() => {}} />
-          <DeleteOutlined style={{ color: "red" }} onClick={() => {}} />
-        </Space>
-      ),
+      render: (text: string, record: Record) => {
+        const { title, amount } = record;
+        const category_id = record.category.id;
+        console.log("record", record);
+        return (
+          <Space size="middle">
+            <EditOutlined
+              style={{ color: "blue" }}
+              onClick={() => {
+                showModal("edit");
+                setForm({ title, amount, category_id });
+                setUpdateId(record.id);
+              }}
+            />
+            <DeleteOutlined
+              style={{ color: "red" }}
+              onClick={() => {
+                showModal("delete");
+                setDeleteId(record.id);
+              }}
+            />
+          </Space>
+        );
+      },
     },
   ];
 
