@@ -35,9 +35,25 @@ interface GET_RECORDS_ERROR {
   type: "GET_RECORDS_ERROR";
 }
 
+interface ADD_RECORD_START {
+  type: "ADD_RECORD_START";
+}
+
+interface ADD_RECORD_SUCCESS {
+  type: "ADD_RECORD_SUCCESS";
+  payload: Record;
+}
+
+interface ADD_RECORD_ERROR {
+  type: "ADD_RECORD_ERROR";
+}
+
 export type RecordDispatch = ThunkDispatch<RecordState, void, RecordAction>;
 
 export type RecordAction =
   | GET_RECORDS_START
   | GET_RECORDS_SUCCESS
-  | GET_RECORDS_ERROR;
+  | GET_RECORDS_ERROR
+  | ADD_RECORD_START
+  | ADD_RECORD_SUCCESS
+  | ADD_RECORD_ERROR;
