@@ -93,6 +93,14 @@ const Records = () => {
       },
     },
     {
+      title: "Last Update",
+      dataIndex: "updatedAt",
+      key: "updatedAt",
+      render: (updatedAt: string, record: Record) => {
+        return <>{new Date(updatedAt).toLocaleDateString("tr")}</>;
+      },
+    },
+    {
       title: "Action",
       key: "action",
       render: (text: string, record: Record) => (
