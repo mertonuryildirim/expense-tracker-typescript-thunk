@@ -4,7 +4,12 @@ import { Record, RecordForm } from "../types/record";
 import { Tag, Table, Button, Modal, Select, Form, Input, Space } from "antd";
 import { DeleteOutlined, EditOutlined } from "@ant-design/icons";
 import React, { useEffect, useState } from "react";
-import { getRecords } from "../store/actions/recordActions";
+import {
+  addRecord,
+  deleteRecord,
+  getRecords,
+  updateRecord,
+} from "../store/actions/recordActions";
 import { Category } from "../types/category";
 import { Mode } from "../types/general";
 import { getCategories } from "../store/actions/categoryActions";
@@ -37,8 +42,11 @@ const Records = () => {
 
   const handleOk = () => {
     if (mode === "new") {
+      dispatch(addRecord(form));
     } else if (mode === "edit" && typeof updateId === "number") {
+      dispatch(updateRecord(form, updateId));
     } else if (mode === "delete" && typeof deleteId === "number") {
+      dispatch(deleteRecord(deleteId));
     }
     setIsModalVisible(false);
     setMode("new");
